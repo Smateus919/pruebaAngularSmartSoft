@@ -1,0 +1,58 @@
+<div *ngIf="loadedData" class="data-table">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <img src="./../../../assets/iconos/ListTable@PYP.png" alt="data list">
+        Lista de pacientes
+      </mat-card-title>
+      <button mat-mini-fab class="btnAdd mat-elevation-z8" (click)="openDialogCreate()">
+        <mat-icon class="add-item__icon iconSmall"></mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="patients" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id" class="column-style">
+          <th mat-header-cell *matHeaderCellDef class="titlesTable-style"> Id. </th>
+          <td mat-cell *matCellDef="let element" class="textContent-style" (click)="setElement(element); openDialogUpdate()"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="titlesTable-style"> Nombre </th>
+          <td mat-cell *matCellDef="let element" class="textContent-style" (click)="setElement(element); openDialogUpdate()"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="idCard">
+          <th mat-header-cell *matHeaderCellDef class="titlesTable-style"> Cedula </th>
+          <td mat-cell *matCellDef="let element" class="textContent-style" (click)="setElement(element); openDialogUpdate()"> {{element.idCard}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="age">
+          <th mat-header-cell *matHeaderCellDef class="titlesTable-style"> Edad </th>
+          <td mat-cell *matCellDef="let element" class="textContent-style" (click)="setElement(element); openDialogUpdate()"> {{element.age}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="eps">
+          <th mat-header-cell *matHeaderCellDef class="titlesTable-style"> Eps </th>
+          <td mat-cell *matCellDef="let element" class="textContent-style" (click)="setElement(element); openDialogUpdate()"> {{element.eps}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [length]="totalPatientSize"
+              [pageSize]="5"
+              (page)="changePage($event)"
+              aria-label="Select page">
+      </mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

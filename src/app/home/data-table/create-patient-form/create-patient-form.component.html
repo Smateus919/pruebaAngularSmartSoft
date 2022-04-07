@@ -1,0 +1,56 @@
+<div *ngIf="dialogState === 'create'">
+  <form [formGroup]="formPatient" (submit)="createPatient($event)">
+    <div class="closeOption">
+      <img src="../../../../assets/iconos/Close@PYP.png" alt="Cerrar" mat-dialog-close>
+    </div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Crear nuevo registro de paciente</mat-card-title>
+        <mat-card-subtitle>Todos los campos son obligatorios</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="inputField">
+          <label>Nombre completo</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="name">
+          </mat-form-field>
+        </div>
+        <div class="inputField">
+          <label>Cedula</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="idCard">
+          </mat-form-field>
+        </div>
+        <div class="inputField">
+          <label>Edad</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="age">
+          </mat-form-field>
+        </div>
+        <div class="inputField">
+          <label>Eps</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="eps">
+          </mat-form-field>
+        </div>
+        <div class="inputField">
+          <label>Correo electronico</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="email">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button  mat-dialog-close>Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="formPatient.invalid" type="submit">Guardar</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+<div *ngIf="dialogState == 'Successful'" class="confirmationDialog">
+  <div class="closeOption">
+    <img src="../../../../assets/iconos/Close@PYP.png" alt="Cerrar" mat-dialog-close>
+  </div>
+  <img src="../../../../assets/iconos/Check@PYP.gif" alt="Creado correctamente">
+  <p>Paciente Creado correctamente</p>
+</div>

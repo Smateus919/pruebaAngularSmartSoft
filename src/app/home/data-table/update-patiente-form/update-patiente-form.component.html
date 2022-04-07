@@ -1,0 +1,62 @@
+<div *ngIf="dialogState === 'update'">
+  <form [formGroup]="formPatient">
+    <div class="closeOption">
+      <img src="../../../../assets/iconos/Close@PYP.png" alt="Cerrar" mat-dialog-close>
+    </div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Actualizar registro de paciente</mat-card-title>
+        <mat-card-subtitle>Id: {{ patient.id }} - {{ patient.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="inputField">
+          <label>Nombre completo</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="name" placeholder="Nombre del paciente">
+          </mat-form-field>
+        </div>
+        <div class="inputField">
+          <label>Cedula</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="idCard" placeholder="Cedula del paciente">
+          </mat-form-field>
+        </div>
+        <div class="inputField">
+          <label>Edad</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="age" placeholder="Edad del paciente">
+          </mat-form-field>
+        </div>
+        <div class="inputField">
+          <label>Eps</label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="eps" placeholder="Ejemplo EPS">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" (click)="updatePatient()">Actualizar</button>
+        <button mat-raised-button color="warn" (click)="deleteRecord()">Eliminar</button>
+        <button mat-raised-button  mat-dialog-close>Cancelar</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+<div *ngIf="dialogState == 'Successful'" class="confirmationDialog">
+  <div class="closeOption">
+    <img src="../../../../assets/iconos/Close@PYP.png" alt="Cerrar" mat-dialog-close>
+  </div>
+  <img src="../../../../assets/iconos/Check@PYP.gif" alt="">
+  <p>Paciente {{ typeOper }} correctamente</p>
+</div>
+<div *ngIf="dialogState == 'confirmDeletion'" class="deletionDialog">
+  <div class="closeOption">
+    <img src="../../../../assets/iconos/Close@PYP.png" alt="Cerrar" mat-dialog-close>
+  </div>
+  <img src="../../../../assets/iconos/Warn@PYP.gif" alt="">
+  <p>¿Esta Seguro que desea eliminar al paciente: {{ patient.name }}?</p>
+  <div class="btnActions">
+    <button mat-raised-button color="warn" (click)="confirDelete()">Confimar</button>
+    <button mat-raised-button  mat-dialog-close>Cancelar</button>
+  </div>
+</div>

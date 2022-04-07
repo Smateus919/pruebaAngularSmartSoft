@@ -1,0 +1,112 @@
+.data-table{
+  display: flex;
+  justify-content: center;
+  margin-top: 97px;
+  mat-card{
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: rgb(57, 127, 204) solid 1px;
+    border-radius: 13px;
+    mat-card-header{
+      display: flex;
+      justify-content: space-between;
+
+      button{
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #397fcc;
+        margin: 2% 7% 0 0;
+        .iconSmall{
+            width: 25px;
+            height: 25px;
+            background-size: contain;
+            background-image: url('../../../assets/iconos/Add@PYP.png');
+        }
+      }
+      img{
+        margin: 0 3%;
+      }
+
+      mat-card-title{
+        margin: 0;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        img{
+          margin-right:15px;
+        }
+      }
+    }
+    mat-card-content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      table {
+        padding: 0 10px;
+        width: 95%;
+      }
+
+      .mat-table{
+        background: none;
+        width: 95%;
+        margin: 0 3%;
+        border-radius: 13px;
+
+        tr.mat-row:hover{
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        th.mat-header-cell, td.mat-cell{
+          padding: 0 5px;
+        }
+
+        .titlesTable-style{
+          font-size: .7rem;
+          color: #397fcc
+        }
+        .textContent-style{
+          font-size: .8rem;
+          color: #fff;
+          cursor: pointer;
+          @media (max-width: 360px){font-size: .7rem;}
+        }
+      }
+      mat-paginator{
+        width: 95%;
+        background-color: #1a5da5;
+        color: #e0e0e0;
+      }
+    }
+  }
+}
+@media (min-width: 700px){
+  .data-table{
+    mat-card{
+      mat-card-header{
+        button{
+          width: 45px;
+          height: 45px;
+          margin: 0 7% 0 0;
+          .iconSmall{
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+      mat-card-content{
+        .mat-table{
+          .titlesTable-style{
+            font-size: 1rem;
+          }
+          .textContent-style{
+            font-size: 1.05rem;
+          }
+        }
+      }
+    }
+  }
+}
