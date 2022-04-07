@@ -73,9 +73,6 @@ export class DashboardComponent implements OnInit {
       for (let i = 0; i < 3; i++) {
         this.lastPatients[i] = this.patients[i]
       }
-      console.log(this.patients);
-      console.log(this.lastPatients);
     })
-    console.log(this.lastPatients);
   }
 }

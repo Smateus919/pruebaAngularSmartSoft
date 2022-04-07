@@ -21,8 +21,6 @@ export class DashboardBoxComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    console.log(this.index);
-    console.log('Ok',this.dataPatient, this.data);
   }
 
 

@@ -47,7 +47,6 @@ export class UpdatePatienteFormComponent implements OnInit {
       const value = this.formPatient.value
       this.dataTableService.updatePatient(value)
       .subscribe(data => {
-        console.log('Paciente actualizado', data);
         this.dialogState = 'Successful'
       })
     }
@@ -60,7 +59,6 @@ export class UpdatePatienteFormComponent implements OnInit {
   confirDelete(){
     this.dataTableService.deletePatient()
     .subscribe(data => {
-      console.log('Paciente eliminado', data);
     })
     this.dialogState = 'Successful'
   }

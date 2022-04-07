@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { DataTableService } from "./../../../services/data-table.service";
 
@@ -16,8 +15,7 @@ export class CreatePatientFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private dataTableService: DataTableService,
-    private router: Router
+    private dataTableService: DataTableService
   ) {
     this.buildForm()
    }
@@ -40,7 +38,6 @@ export class CreatePatientFormComponent implements OnInit {
       const value = this.formPatient.value
       this.dataTableService.createPatient(value)
       .subscribe(data => {
-        console.log('Paciente creado', data);
         this.dialogState = 'Successful'
       })
     }
