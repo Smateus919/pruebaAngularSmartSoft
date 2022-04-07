@@ -25,6 +25,7 @@
             background-size: contain;
             background-image: url('../../../assets/iconos/Add@PYP.png');
         }
+
       }
       img{
         margin: 0 3%;
@@ -78,10 +79,50 @@
       mat-paginator{
         width: 95%;
         background-color: #1a5da5;
-        color: #e0e0e0;
       }
     }
   }
+}
+::ng-deep .ngx-pagination{
+  margin-top: 20px;
+}
+::ng-deep .ngx-pagination .current {
+  border-radius: 13px;
+}
+::ng-deep .ngx-pagination a{
+  color: #e0e0e0 !important;
+}
+::ng-deep .ngx-pagination a:hover{
+  color: #1a5da5 !important;
+  border-radius: 13px;
+}
+.tooltip {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  padding: 15px;
+  background-color: rgba(20, 55, 109, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-family: 'Montserrat', sans-serif;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 35%;
+  margin-left: -50%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 @media (min-width: 700px){
   .data-table{

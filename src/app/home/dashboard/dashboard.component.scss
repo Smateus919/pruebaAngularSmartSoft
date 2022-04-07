@@ -212,6 +212,11 @@
   background-image: url('/assets/Dashboard/fondoDashboard@PYP.png');
   z-index: -1;
   margin-left: -3px;
+  h3{
+    font-size: 1.4rem;
+    text-align: center;
+    color: #fff;
+  }
 }
 
 @media (min-width: 1025px) {

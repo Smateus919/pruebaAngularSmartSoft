@@ -1,6 +1,8 @@
 import { Component, Injectable, OnInit } from "@angular/core";
+import { Patient } from "src/app/interfaces/patients.type";
 import { DashboardItem } from "../../interfaces/dashboard.item.type";
 import { DashboardService } from "../../services/dashboard.service";
+import { DataTableService } from "../../services/data-table.service";
 import { ToastService } from "../../services/toast.service";
 
 @Component({
@@ -13,6 +15,14 @@ import { ToastService } from "../../services/toast.service";
 })
 export class DashboardComponent implements OnInit {
   public elements: DashboardItem[] = [];
+  public patients: Patient[] = [];
+  public lastPatients: Patient[] = [{
+    id: 5,
+    name: 'sdasdasd',
+    idCard: 1351321,
+    age: 12,
+    eps: 'sdasda'
+  }];
   public loading = false;
   public ngxLoadingAnimationTypes = {
     chasingDots: "chasing-dots",
@@ -30,12 +40,14 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private dashboardService: DashboardService,
-    private toast: ToastService
+    private toast: ToastService,
+    private dataTableService: DataTableService
   ) {}
 
 
   public ngOnInit() {
     this.getData().then();
+    this.getDataPatient()
   }
 
   /**
@@ -52,5 +64,18 @@ export class DashboardComponent implements OnInit {
         "No se pudieron obtener los indicadores del dashboard, revise su conexión"
       );
     }
+  }
+
+  public getDataPatient(){
+    this.dataTableService.getAllPatients()
+    .subscribe(data => {
+      this.patients = data.reverse()
+      for (let i = 0; i < 3; i++) {
+        this.lastPatients[i] = this.patients[i]
+      }
+      console.log(this.patients);
+      console.log(this.lastPatients);
+    })
+    console.log(this.lastPatients);
   }
 }

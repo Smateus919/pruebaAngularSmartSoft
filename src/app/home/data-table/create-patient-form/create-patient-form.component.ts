@@ -11,8 +11,8 @@ import { DataTableService } from "./../../../services/data-table.service";
 })
 export class CreatePatientFormComponent implements OnInit {
 
-  formPatient: FormGroup
-  dialogState: string = 'create'
+  public formPatient: FormGroup
+  public dialogState: string = 'create'
 
   constructor(
     private formBuilder: FormBuilder,

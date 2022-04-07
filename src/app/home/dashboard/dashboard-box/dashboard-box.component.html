@@ -13,9 +13,9 @@
                         <mat-icon class="data-icon-svg pointer" [svgIcon]="'titulo@PYPGrandes'" [ngStyle]="{'fill': 'transparent','stroke': data.color}"></mat-icon>
                     </div>
                     <div class="data-col tooltip w-80" >
-                        <p class="font2" [ngStyle]="{'color': data.color}">Titulo de campaña</p>
-                        <p class="font3 shorten">{{ data.campaignTitle }}</p>
-                        <span class="tooltiptext">{{ data.campaignTitle  }}</span>
+                        <p class="font2" [ngStyle]="{'color': data.color}">id Paciente</p>
+                        <p class="font3 shorten">{{ dataPatient[index].id }}</p>
+                        <span class="tooltiptext">{{ dataPatient[index].id }}</span>
                     </div>
                 </div>
                 <div class="flex-data-container">
@@ -23,8 +23,8 @@
                         <mat-icon class="data-icon-svg pointer" [svgIcon]="'Tipo@PYPGrandes'" [ngStyle]="{'color': 'transparent','stroke': data.color}"></mat-icon>
                     </div>
                     <div class="data-col w-80" >
-                        <p class="font2 m-2" [ngStyle]="{'color': data.color}">Tipo de la campaña</p>
-                        <p class="font3 shorten">{{ data.campaignType }}</p>
+                        <p class="font2 m-2" [ngStyle]="{'color': data.color}">Nombre paciente</p>
+                        <p class="font3 shorten">{{ dataPatient[index].name }}</p>
                     </div>
                 </div>
                 <div class="flex-data-container data-center-row data-right-border">
@@ -32,8 +32,8 @@
                         <mat-icon class="data-icon-svg pointer" [svgIcon]="'Estatus@PYPGrandes'" [ngStyle]="{'fill': data.color,'stroke': 'transparent'}"></mat-icon>
                     </div>
                     <div class="data-col w-80" >
-                        <p class="font2 no-margin" [ngStyle]="{'color': data.color}">Estatus de campaña</p>
-                        <p class="font3 shorten">{{ data.status }}</p>
+                        <p class="font2 no-margin" [ngStyle]="{'color': data.color}">EPS Afiliada</p>
+                        <p class="font3 shorten">{{ dataPatient[index].eps }}</p>
                     </div>
                 </div>
                 <div class="flex-data-container data-center-row">
@@ -41,8 +41,8 @@
                       <mat-icon class="data-icon-svg pointer" [svgIcon]="'usuariosImpactados@PYPGrandes'" [ngStyle]="{'fill': data.color,'stroke': 'transparent'}"></mat-icon>
                     </div>
                     <div class="data-col w-80" >
-                        <p class="font2 m-2" [ngStyle]="{'color': data.color}">Número de usuarios impactados</p>
-                        <p class="font3 shorten" >{{ data.impactedUsers }}</p>
+                        <p class="font2 m-2" [ngStyle]="{'color': data.color}">Edad</p>
+                        <p class="font3 shorten" >{{ dataPatient[index].age }}</p>
                     </div>
                 </div>
                 <div class="flex-data-container data-right-border">
@@ -50,9 +50,8 @@
                       <mat-icon class="data-icon-svg pointer" [svgIcon]="'Fecha@PYPGrandes'" [ngStyle]="{'fill': data.color,'stroke': 'transparent'}"></mat-icon>
                     </div>
                     <div class="data-col tooltip w-80" >
-                        <p class="font2" [ngStyle]="{'color': data.color}" >Fecha y hora de creación</p>
-                        <p class="font3 shorten"> {{ data.creationDate | date:'dd/MM/yyyy - h:mm a'}}</p>
-                        <span class="tooltiptext">{{ data.creationDate | date:'dd/MM/yyyy - h:mm a' }}</span>
+                        <p class="font2" [ngStyle]="{'color': data.color}" >Correo electronico</p>
+                        <p class="font3 shorten"> {{ dataPatient[index].email }}</p>
                     </div>
                 </div>
                 <div class="flex-data-container">
@@ -60,7 +59,7 @@
                         <mat-icon class="data-icon-svg pointer" [svgIcon]="'Fecha@PYPGrandes'" [ngStyle]="{'fill': data.color,'stroke': 'transparent'}"></mat-icon>
                     </div>
                     <div class="data-col tooltip w-80" >
-                        <p class="font2" [ngStyle]="{'color': data.color}" >Fecha y hora de envío</p>
+                        <p class="font2" [ngStyle]="{'color': data.color}" >Fecha y hora de actualización</p>
                         <p class="font3 shorten">{{ data.sendDate | date:'dd/MM/yyyy - h:mm a'}}</p>
                         <span class="tooltiptext">{{ data.sendDate | date:'dd/MM/yyyy - h:mm a' }}</span>
                     </div>

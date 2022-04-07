@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit {
         //
         if (isValid) {
           this.toastService.success(
-            "Bienvenido '" + this.authService.getNames({firstName: true, lastName: true}) + "'",
+            "Bienvenido '" + user + "'",
             "Exito"
           );
           this.router.navigateByUrl("/home/dashboard");
@@ -110,6 +110,8 @@ export class LoginComponent implements OnInit {
         else{
           this.toastService.error("El usuario y/o contraseña no son correctos")
           this.router.navigate(['/login']);
+          this.form.reset()
+          this.loginInProgress = false;
         }
       }
     } catch (e) {

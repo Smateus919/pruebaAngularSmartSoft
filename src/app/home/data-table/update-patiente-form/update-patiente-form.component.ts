@@ -13,9 +13,9 @@ import { DataTableService } from 'src/app/services/data-table.service';
 export class UpdatePatienteFormComponent implements OnInit {
 
   public patient: Patient
-  formPatient: FormGroup
-  dialogState:string = 'update'
-  typeOper:string = 'Actualizado'
+  public formPatient: FormGroup
+  public dialogState:string = 'update'
+  public typeOper:string = 'Actualizado'
 
 
   constructor(

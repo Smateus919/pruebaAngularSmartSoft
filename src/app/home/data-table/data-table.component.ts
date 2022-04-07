@@ -18,14 +18,13 @@ export class DataTableComponent implements OnInit {
 
   @ViewChild(MatTable) table: MatTable<any>
 
-  loadedData: boolean = false
-  pageEvent: PageEvent
-  limit: number = 5
-  offset: number = 0
+  public loadedData: boolean = false
+  public pageEvent: PageEvent
+  public page = 1
 
-  patients: Patient[] = []
-  displayedColumns: string[] = ['id', 'name', 'idCard', 'age', 'eps'];
-  totalPatientSize: number
+  public patients: Patient[] = []
+  public displayedColumns: string[] = ['id', 'name', 'idCard', 'age', 'eps'];
+  public totalPatientSize: number
 
   constructor(
     private dataTable: DataTableService,
@@ -34,20 +33,12 @@ export class DataTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllPatient()
-    this.getDataPatientsByPage()
   }
   getAllPatient(){
     this.dataTable.getAllPatients()
     .subscribe(data => {
-      this.totalPatientSize = data.length
-    })
-  }
-
-  getDataPatientsByPage(){
-    this.dataTable.getPartPatients(this.limit, this.offset)
-    .subscribe(data => {
       this.patients = data.reverse()
-      this.offset += this.limit
+      this.totalPatientSize = data.length
       this.loadedData = true
     })
   }
@@ -55,37 +46,19 @@ export class DataTableComponent implements OnInit {
   openDialogCreate(){
     const dialogRef = this.dialog.open(CreatePatientFormComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.getDataPatientsByPage()
+      this.getAllPatient()
       this.table.renderRows()
     });
   }
   openDialogUpdate(){
     const dialogRef = this.dialog.open(UpdatePatienteFormComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.getDataPatientsByPage()
+      this.getAllPatient()
       this.table.renderRows()
-      console.log(`Actualizado`, result);
     });
   }
   setElement(patient){
     this.dataTable.getPatientUpdate(patient)
-  }
-  changePage(pageEvent: PageEvent){
-    if (pageEvent.previousPageIndex < pageEvent.pageIndex) {
-      this.dataTable.getPartPatients(this.limit, this.offset)
-      .subscribe(data =>{
-        this.patients = data
-        this.offset += this.limit
-      })
-    }else{
-      this.offset -= this.limit*2
-      console.log(this.offset);
-      this.dataTable.getPartPatients(this.limit, this.offset)
-      .subscribe(data =>{
-        this.patients = data
-        this.offset += this.limit
-      })
-    }
   }
 
 }

@@ -5,12 +5,13 @@
         <img src="./../../../assets/iconos/ListTable@PYP.png" alt="data list">
         Lista de pacientes
       </mat-card-title>
-      <button mat-mini-fab class="btnAdd mat-elevation-z8" (click)="openDialogCreate()">
+      <button mat-mini-fab class="btnAdd mat-elevation-z8 tooltip" (click)="openDialogCreate()">
         <mat-icon class="add-item__icon iconSmall"></mat-icon>
+        <span class="tooltiptext">Agregar paciente</span>
       </button>
     </mat-card-header>
     <mat-card-content>
-      <table mat-table [dataSource]="patients" class="mat-elevation-z8">
+      <table mat-table [dataSource]="patients | paginate: { itemsPerPage: 10, currentPage: page }" class="mat-elevation-z8" >
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -48,11 +49,13 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <mat-paginator [length]="totalPatientSize"
-              [pageSize]="5"
-              (page)="changePage($event)"
-              aria-label="Select page">
-      </mat-paginator>
+      <pagination-controls
+        class="ngx-pagination-style"
+        (pageChange)="page = $event"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"
+      >
+      </pagination-controls>
     </mat-card-content>
   </mat-card>
 </div>

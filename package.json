@@ -50,6 +50,7 @@
     "ng-inline-svg": "^11.0.2",
     "ngx-loading": "^8.0.0",
     "ngx-material-timepicker": "^5.5.3",
+    "ngx-pagination": "^5.1.1",
     "ngx-toastr": "^12.0.0",
     "ol": "^6.3.1",
     "ol-mapbox-style": "^6.1.1",

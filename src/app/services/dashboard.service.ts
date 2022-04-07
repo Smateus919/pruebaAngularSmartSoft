@@ -20,7 +20,7 @@ export class DashboardService {
         color: "#9469AD",
         sendDate: new Date(),
         status: "Creada",
-        theme: "Salud",
+        theme: "Pacientes",
         themeIcon: "Bullyng@PYPGrandes",
         expandableData: [
           {
@@ -47,7 +47,7 @@ export class DashboardService {
         creationDate: new Date(),
         sendDate: new Date(),
         status: "Creada",
-        theme: "Salud",
+        theme: "Pacientes",
         themeIcon: "Covid@PYPGrandes",
         color: "#419AFF",
         expandableData: [
@@ -75,7 +75,7 @@ export class DashboardService {
         creationDate: new Date(),
         sendDate: new Date(),
         status: "Creada",
-        theme: "Salud",
+        theme: "Pacientes",
         color: "#65BE51",
         themeIcon: "nutricion@PYPGrandes",
         expandableData: [
